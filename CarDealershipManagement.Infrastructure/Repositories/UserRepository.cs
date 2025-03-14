@@ -51,7 +51,7 @@ namespace CarDealershipManagement.Infrastructure.Repositories
         {
             var users = new List<User>();
 
-            using var reader = await _sqlHelper.ExecuteReaderAsync("SELECT u.UserId, u.Username, u.PasswordHash, u.Email, u.FullName, u.RoleId, r.Name as RoleName, u.CreatedDate, u.ModifiedDate FROM Users u JOIN Roles r ON u.RoleId = r.RoleId");
+            using var reader = await _sqlHelper.ExecuteReaderAsync("sp_GetUsersWithRoles");
 
             while (await reader.ReadAsync())
             {
@@ -98,7 +98,7 @@ namespace CarDealershipManagement.Infrastructure.Repositories
                     new SqlParameter("@ModifiedDate", DateTime.Now)
             };
 
-            await _sqlHelper.ExecuteNonQueryAsync("UPDATE Users SET Username = @Username, Email = @Email, FullName = @FullName, RoleId = @RoleId, ModifiedDate = @ModifiedDate WHERE UserId = @UserId", parameters);
+            await _sqlHelper.ExecuteNonQueryAsync("sp_UpdateUser", parameters);
             return true;
         }
 
@@ -109,7 +109,7 @@ namespace CarDealershipManagement.Infrastructure.Repositories
                     new SqlParameter("@UserId", id)
             };
 
-            await _sqlHelper.ExecuteNonQueryAsync("DELETE FROM Users WHERE UserId = @UserId", parameters);
+            await _sqlHelper.ExecuteNonQueryAsync("usp_DeleteUser", parameters);
             return true;
         }
 

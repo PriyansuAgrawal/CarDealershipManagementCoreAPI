@@ -83,7 +83,7 @@ namespace CarDealershipManagement.Infrastructure.Repositories
                     new SqlParameter("@PreviousYearSales", entity.PreviousYearSales)
             };
 
-            await _sqlHelper.ExecuteNonQueryAsync("UPDATE Salesmen SET Name = @Name, PreviousYearSales = @PreviousYearSales WHERE SalesmanId = @SalesmanId", parameters);
+            await _sqlHelper.ExecuteNonQueryAsync("sp_UpdateSalesman", parameters);
             return true;
         }
 
@@ -94,7 +94,7 @@ namespace CarDealershipManagement.Infrastructure.Repositories
                     new SqlParameter("@SalesmanId", id)
             };
 
-            await _sqlHelper.ExecuteNonQueryAsync("DELETE FROM Salesmen WHERE SalesmanId = @SalesmanId", parameters);
+            await _sqlHelper.ExecuteNonQueryAsync("usp_DeleteSalesman", parameters);
             return true;
         }
 
