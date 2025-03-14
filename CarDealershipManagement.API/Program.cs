@@ -32,6 +32,8 @@ namespace CarDealershipManagement.API
                         .AllowAnyHeader();
                 });
             });
+
+            builder.WebHost.UseWebRoot("wwwroot");
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
@@ -106,7 +108,12 @@ namespace CarDealershipManagement.API
             app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                ServeUnknownFileTypes = true,
+                DefaultContentType = "application/octet-stream"
+            });
 
             app.UseCors("AllowAll");
 

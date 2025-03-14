@@ -79,7 +79,7 @@ namespace CarDealershipManagement.Core.DTOs
     }
     public class CarModelSearchRequest
     {
-        public string SearchTerm { get; set; }
+        public string? SearchTerm { get; set; } = "";
         public string OrderBy { get; set; } = "DateOfManufacturing DESC";
     }
     public class ImageUploadRequest

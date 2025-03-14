@@ -59,5 +59,20 @@ namespace CarDealershipManagement.API.Controllers
 
             return Success(menuDtos);
         }
+        [HttpGet("menu/{id}")]
+        [Authorize]
+        public async Task<ActionResult<ApiResponse<IEnumerable<MenuItemDto>>>> GetMenu([FromQuery] int roleId)
+        {
+            var currentUserService = HttpContext.RequestServices.GetRequiredService<ICurrentUserService>();
+            var userId = currentUserService.UserId;
+
+            if (!userId.HasValue)
+                return Error<IEnumerable<MenuItemDto>>("User not authenticated");
+
+            var menu = await _authService.GetUserMenuAsync(userId.Value);
+            var menuDtos = _mapper.Map<IEnumerable<MenuItemDto>>(menu);
+
+            return Success(menuDtos);
+        }
     }
 }

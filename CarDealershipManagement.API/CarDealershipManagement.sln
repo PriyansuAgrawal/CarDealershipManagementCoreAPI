@@ -5,9 +5,9 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealershipManagement.API", "CarDealershipManagement.API.csproj", "{9C50210E-E0AD-4EEB-8FB3-9086E2788CFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDealershipManagement.Core", "..\CarDealershipManagement.Core\CarDealershipManagement.Core.csproj", "{3D3512A7-6F62-4B5D-80E2-FE4598625296}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealershipManagement.Core", "..\CarDealershipManagement.Core\CarDealershipManagement.Core.csproj", "{3D3512A7-6F62-4B5D-80E2-FE4598625296}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDealershipManagement.Infrastructure", "..\CarDealershipManagement.Infrastructure\CarDealershipManagement.Infrastructure.csproj", "{9EB849B9-6D90-40A1-9DDD-49E0B2B8E27D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealershipManagement.Infrastructure", "..\CarDealershipManagement.Infrastructure\CarDealershipManagement.Infrastructure.csproj", "{9EB849B9-6D90-40A1-9DDD-49E0B2B8E27D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

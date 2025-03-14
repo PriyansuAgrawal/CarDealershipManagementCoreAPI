@@ -31,7 +31,7 @@ namespace CarDealershipManagement.Infrastructure.Repositories
             var details = new List<CommissionReport>();
             var summary = new List<CommissionSummary>();
 
-            var dataSet = await _sqlHelper.ExecuteDataSetAsync("sp_GetCommissionReport", parameters);
+            var dataSet = await _sqlHelper.ExecuteDataSetAsync("sp_GetCommissionReportV2", parameters);
 
             // First table is the details
             if (dataSet.Tables.Count > 0)

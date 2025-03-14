@@ -214,7 +214,7 @@ namespace CarDealershipManagement.Infrastructure.Repositories
         {
             var brands = new List<Brand>();
 
-            using var reader = await _sqlHelper.ExecuteReaderAsync("SELECT BrandId, Name FROM Brands ORDER BY Name");
+            using var reader = await _sqlHelper.ExecuteReaderAsync("sp_GetBrands");
 
             while (await reader.ReadAsync())
             {
@@ -232,7 +232,7 @@ namespace CarDealershipManagement.Infrastructure.Repositories
         {
             var classes = new List<Class>();
 
-            using var reader = await _sqlHelper.ExecuteReaderAsync("SELECT ClassId, Name FROM Classes ORDER BY Name");
+            using var reader = await _sqlHelper.ExecuteReaderAsync("sp_GetClasses");
 
             while (await reader.ReadAsync())
             {

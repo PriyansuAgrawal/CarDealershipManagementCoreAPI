@@ -71,7 +71,7 @@ namespace CarDealershipManagement.Infrastructure.Repositories
                     new SqlParameter("@PreviousYearSales", entity.PreviousYearSales)
             };
 
-            return await _sqlHelper.ExecuteScalarAsync<int>("INSERT INTO Salesmen (Name, PreviousYearSales) VALUES (@Name, @PreviousYearSales); SELECT SCOPE_IDENTITY();", parameters);
+            return await _sqlHelper.ExecuteScalarAsync<int>("sp_CreateSalesMen", parameters);
         }
 
         public async Task<bool> UpdateAsync(Salesman entity)
